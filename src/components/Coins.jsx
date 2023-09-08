@@ -5,6 +5,8 @@ import { Button, Container, HStack, Radio, RadioGroup } from "@chakra-ui/react";
 import Loader from "./Loader";
 import ErrorComponent from "./ErrorComponent";
 import CoinCard from "./CoinCard";
+import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { db } from "../backend/firebase-config";
 
 const Coins = () => {
   const [coins, setCoins] = useState([]);
@@ -42,20 +44,39 @@ const Coins = () => {
   if (error) return <ErrorComponent message={"Error While Fetching Coins"} />;
 
   return (
-    <Container maxW={"container.xl"}>
+    <Container
+      maxW={"100%"}
+      bgGradient="linear(to-r, teal.500, blue.500, purple.500, pink.500)"
+      bgSize="100%"
+      minH="100vh"
+      p="20px"
+    >
       {loading ? (
         <Loader />
       ) : (
         <>
           <RadioGroup value={currency} onChange={setCurrency} p={"8"}>
             <HStack spacing={"4"}>
-              <Radio value={"inr"}>INR</Radio>
-              <Radio value={"usd"}>USD</Radio>
-              <Radio value={"eur"}>EUR</Radio>
+              <Radio value={"inr"} fontSize="md" fontWeight="bold">
+                INR
+              </Radio>
+              <Radio value={"usd"} fontSize="md" fontWeight="bold">
+                USD
+              </Radio>
+              <Radio value={"eur"} fontSize="md" fontWeight="bold">
+                EUR
+              </Radio>
             </HStack>
           </RadioGroup>
 
-          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+          <HStack
+            wrap={"wrap"}
+            justifyContent={"space-evenly"}
+            bg={"white"}
+            p="20px"
+            borderRadius="8px"
+            boxShadow="2xl" // Add box shadow
+          >
             {coins.map((i) => (
               <CoinCard
                 id={i.id}

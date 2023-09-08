@@ -44,12 +44,19 @@ const Chart = ({ arr = [], currency, days }) => {
   };
 
   return (
-    <Line
-      options={{
-        responsive: true,
+    <div
+      style={{
+        background:
+          "linear-gradient(to right, teal.500, blue.500, purple.500, pink.500)",
       }}
-      data={data}
-    />
+    >
+      <Line
+        options={{
+          responsive: true,
+        }}
+        data={data}
+      />
+    </div>
   );
 };
 

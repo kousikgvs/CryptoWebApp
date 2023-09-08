@@ -35,13 +35,21 @@ const Exchanges = () => {
     return <ErrorComponent message={"Error While Fetching Exchanges"} />;
 
   return (
-    <Container maxW={"container.xl"}>
+    <Container
+      maxW={"100%"} // Make the width 100%
+      bgGradient="linear(to-r, teal.500, blue.500, purple.500, pink.500)" // Apply gradient background
+      bgSize="100%" // Make the gradient background span 100% width of the webpage
+    >
       {loading ? (
         <Loader />
       ) : (
         <>
-          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
-            {exchanges.map((i) => (
+          <HStack
+            wrap={"wrap"}
+            justifyContent={"space-evenly"}
+            align="flex-start" // Align items to the start of the flex container
+          >
+            {exchanges.map((i, index) => (
               <ExchangeCard
                 key={i.id}
                 name={i.name}
@@ -66,6 +74,7 @@ const ExchangeCard = ({ name, img, rank, url }) => (
       borderRadius={"lg"}
       transition={"all 0.3s"}
       m={"4"}
+      bg="white" // Set the background color to white
       css={{
         "&:hover": {
           transform: "scale(1.1)",
