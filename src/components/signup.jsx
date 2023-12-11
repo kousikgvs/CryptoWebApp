@@ -92,16 +92,16 @@ const App = () => {
   }, []);
 
   return (
-    <Flex
-      flexDirection="column"
-      width="100wh"
-      height="100vh"
-      bgGradient="linear(to-r, teal.500, blue.500, purple.500, pink.500)"
-      backgroundColor="gray.200"
-      gap={10}
-      justifyContent="center"
-      alignItems="center"
-    >
+<Flex
+  flexDirection="column"
+  width="100wh"
+  height="120vh"
+  bgGradient="linear(to-r, teal.500, blue.500, purple.500, pink.500)"
+  backgroundColor="gray.200"
+  gap={10}
+  justifyContent="center"
+  alignItems="center"
+>
       <Stack
         flexDir="column"
         mb="2"
@@ -210,10 +210,11 @@ const App = () => {
       </Stack>
       <Box>
         <Text fontSize="30px" color="blackAlpha.900" fontWeight="extrabold">
-          New to us :
+          Already a Member :
         </Text>
         <Link to={"/login"}>
           <Text
+            bgGradient="linear(to-l, white , green ,  white  white , green , white)"
             bgClip="text"
             fontSize="3xl"
             color="whiteAlpha.700"
