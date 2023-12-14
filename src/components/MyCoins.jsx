@@ -62,14 +62,6 @@ const LikedCoinsPage = () => {
             )}
           </Box>
         )}
-        <Button
-          colorScheme="teal"
-          as="a"
-          href="/"
-          _hover={{ bgColor: "teal.600" }}
-        >
-          Back
-        </Button>
       </VStack>
     </Container>
   );
